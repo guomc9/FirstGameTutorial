@@ -46,6 +46,8 @@ void AA_PrimitiveFountain::EmitParticles(int32 SpawnNum)
 			AParticleActor* ParticleActor = World->SpawnActor<AParticleActor>(AParticleActor::StaticClass(), Location, FRotator::ZeroRotator, SpawnParams);
 			if (ParticleActor)
 			{
+				//FString Message = FString::Printf(TEXT("Spawn Particle."));
+				//GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, Message);
 				float NewTheta = DeltaTheta.X + (DeltaTheta.Y - DeltaTheta.X) * FMath::SRand() + Theta;
 				float NewPhi = DeltaPhi.X + (DeltaPhi.Y - DeltaPhi.X) * FMath::SRand() + Phi;
 				FVector Velocity = {R * FMath::Sin(NewTheta) * FMath::Cos(NewPhi), R * FMath::Sin(NewTheta) * FMath::Sin(NewPhi), R * FMath::Cos(NewTheta)};
